@@ -1,0 +1,8 @@
+bin/builds
+bin/log
+bin/tmp
+bin/phantomjs-1.5.0
+*swp
+*~
+.DS_Store
+

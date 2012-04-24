@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------
+# 
+# DESCRIPTION:
+# 
+# A Script that opens the current folder in Finder
+# 
+# ----------------------------------------------------------------
+# 
+# USAGE: just run this in the terminal
+# 
+# ----------------------------------------------------------------
+/usr/bin/osascript -e "tell application \"Finder\" to open POSIX file \"`pwd`\""
+

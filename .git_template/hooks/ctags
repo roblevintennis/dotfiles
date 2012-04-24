@@ -1,0 +1,5 @@
+#!/bin/sh
+#rm -f .git/tags
+rm -f ./tags
+#ctags --tag-relative -Rf.git/tags --exclude=.git --languages=-sql
+jsctags . 

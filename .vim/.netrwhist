@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/rlevin/tmp'
+let g:netrw_dirhist_2='/Users/rlevin/programming/sugar/Mango/sugarcrm/clients/base/views/edit'
+let g:netrw_dirhist_3='/Users/rlevin/programming/sugar/Mango/sugarcrm/clients/base/views/detail'
+let g:netrw_dirhist_4='/Users/rlevin/programming/sugar/Mango'
+let g:netrw_dirhist_5='/Users/rlevin/bin/tmp'
