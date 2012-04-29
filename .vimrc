@@ -47,7 +47,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " display incomplete commands
-set showcmd
+let showcmd=1
 " Enable highlighting for syntax
 syntax on
 " Enable file type detection.
@@ -130,8 +130,11 @@ nnoremap <leader><leader> <c-^>
 " Delete and paste below and above respectively
 noremap - ddp
 noremap _ ddkP
+
+" NERDTree
 noremap <leader>no :NERDTree<cr>
 noremap <leader>nc :NERDTreeClose<cr>
+let NERDTreeShowBookmarks=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -269,6 +272,7 @@ noremap <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>gB :CommandTFlush<cr>\|:CommandT build<cr>
 noremap <leader>gG :CommandTFlush<cr>\|:CommandT sugarcrm<cr>
+noremap <leader>gR :CommandTFlush<cr>\|:CommandT sugarcrm/include/api<cr>
 noremap <leader>gC :CommandTFlush<cr>\|:CommandT sidecar<cr>
 noremap <leader>gL :CommandTFlush<cr>\|:CommandT sidecar/lib<cr>
 noremap <leader>gS :CommandTFlush<cr>\|:CommandT sidecar/src<cr>
@@ -280,6 +284,27 @@ inoremap <c-u> <esc>viwU<c-r>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :iabbrev ssig --<cr>Rob Levin<cr>rlevin@sugarcrm.com
+
+" SugarCRM - Mango
+au BufWritePost /Users/rlevin/programming/sugar/Mango/sidecar/* silent !$HOME/bin/sugarbuild.sh %:p
+
+" If we do :wa<CR> we check if command type is ':' and if command itself was
+" 'wa'. If so, we call the command WA which calls BuildSidecarIfInProject.
+" This checks if we're actually within the project's directly
+cnoreabbrev <expr> wa ((getcmdtype() is# ':' && getcmdline() is# 'wa')?('WA'):('wa'))
+command! WA :call BuildSidecarIfInProject()
+function! BuildSidecarIfInProject()
+  if fnamemodify('.', ':p')[:36] is# '/Users/rlevin/programming/sugar/Mango'
+    :call BuildSidecar()
+  endif
+endfunction
+function! BuildSidecar()
+  exec ":!$HOME/bin/toffeebuild.sh"
+endfunction
+
+command! BuildSidecar :call BuildSidecar()
+
+
 
 "augroup filetype_html
 "    autocmd!
@@ -418,24 +443,5 @@ command! OpenChangedFiles :call OpenChangedFiles()
 " Insert the current time
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
-
-" SugarCRM - Mango
-au BufWritePost /Users/rlevin/programming/sugar/Mango/sidecar/* silent !$HOME/bin/sugarbuild.sh %:p
-
-" If we do :wa<CR> we check if command type is ':' and if command itself was
-" 'wa'. If so, we call the command WA which calls BuildSidecarIfInProject.
-" This checks if we're actually within the project's directly
-cnoreabbrev <expr> wa ((getcmdtype() is# ':' && getcmdline() is# 'wa')?('WA'):('wa'))
-command! WA :call BuildSidecarIfInProject()
-function! BuildSidecarIfInProject()
-  if fnamemodify('.', ':p')[:36] is# '/Users/rlevin/programming/sugar/Mango'
-    :call BuildSidecar()
-  endif
-endfunction
-function! BuildSidecar()
-  exec ":!$HOME/bin/toffeebuild.sh"
-endfunction
-
-command! BuildSidecar :call BuildSidecar()
 
 

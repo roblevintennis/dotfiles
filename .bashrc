@@ -85,6 +85,8 @@ alias vi='mvim -v'
 alias mango="pushd /Users/rlevin/programming/sugar/Mango; clear;"
 alias sidecar="pushd /Users/rlevin/programming/sugar/Mango; clear;"
 alias htdocs="pushd /Applications/MAMP/htdocs; clear;"
+alias xdebug="pushd /Applications/MAMP/bin/php/php5.3.6/lib/php/extensions/no-debug-non-zts-20090626; clear;"
+alias rails="/Users/rlevin/.rvm/gems/ruby-1.9.3-p125/bin/rails"
 
 activate_virtualenv() {
     if [ -f env/bin/activate ]; then . env/bin/activate;
