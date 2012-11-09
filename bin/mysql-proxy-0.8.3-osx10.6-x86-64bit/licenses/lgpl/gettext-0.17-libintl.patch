@@ -1,0 +1,904 @@
+*** gettext-0.17/gettext-runtime/configure.ORIG	Wed Nov  7 00:33:39 2007
+--- gettext-0.17/gettext-runtime/configure	Wed Mar 16 11:59:49 2011
+***************
+*** 6,11 ****
+--- 6,17 ----
+  # 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
+  # This configure script is free software; the Free Software Foundation
+  # gives unlimited permission to copy, distribute and modify it.
++ 
++ # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
++ #
++ # This file contains modifications made by Oracle Corporation,
++ # required to make the configure file work/build with this software.
++ 
+  ## --------------------- ##
+  ## M4sh Initialization.  ##
+  ## --------------------- ##
+***************
+*** 10657,10663 ****
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=yes
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+--- 10663,10669 ----
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=no
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+***************
+*** 10840,10855 ****
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=yes
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    esac
+    ;;
+--- 10846,10861 ----
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=no
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    esac
+    ;;
+***************
+*** 10861,10867 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+--- 10867,10873 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+***************
+*** 10873,10879 ****
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=yes
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 10879,10885 ----
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=no
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 10888,10894 ****
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=yes
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 10894,10900 ----
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=no
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 10919,10925 ****
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=yes
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+--- 10925,10931 ----
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=no
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+***************
+*** 10956,10962 ****
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=yes
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+--- 10962,10968 ----
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=no
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+***************
+*** 10977,10983 ****
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=yes
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+--- 10983,10989 ----
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=no
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+***************
+*** 11009,11015 ****
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    ;;
+  
+  newsos6)
+--- 11015,11021 ----
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    ;;
+  
+  newsos6)
+***************
+*** 11087,11093 ****
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+--- 11093,11099 ----
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+***************
+*** 11144,11150 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+--- 11150,11156 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+***************
+*** 14628,14634 ****
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=yes
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+--- 14634,14640 ----
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=no
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+***************
+*** 14810,14825 ****
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=yes
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    esac
+    ;;
+--- 14816,14831 ----
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=no
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    esac
+    ;;
+***************
+*** 14831,14837 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+--- 14837,14843 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+***************
+*** 14843,14849 ****
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=yes
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 14849,14855 ----
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=no
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 14858,14864 ****
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=yes
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 14864,14870 ----
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=no
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 14889,14895 ****
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=yes
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+--- 14895,14901 ----
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=no
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+***************
+*** 14926,14932 ****
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=yes
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+--- 14932,14938 ----
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=no
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+***************
+*** 14947,14953 ****
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=yes
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+--- 14953,14959 ----
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=no
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+***************
+*** 14979,14985 ****
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    ;;
+  
+  newsos6)
+--- 14985,14991 ----
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    ;;
+  
+  newsos6)
+***************
+*** 15057,15063 ****
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+--- 15063,15069 ----
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+***************
+*** 15114,15120 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+--- 15120,15126 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+***************
+*** 17232,17238 ****
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=yes
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+--- 17238,17244 ----
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=no
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+***************
+*** 17414,17429 ****
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=yes
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    esac
+    ;;
+--- 17420,17435 ----
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=no
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    esac
+    ;;
+***************
+*** 17435,17441 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+--- 17441,17447 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+***************
+*** 17447,17453 ****
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=yes
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 17453,17459 ----
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=no
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 17462,17468 ****
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=yes
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 17468,17474 ----
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=no
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 17493,17499 ****
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=yes
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+--- 17499,17505 ----
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=no
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+***************
+*** 17530,17536 ****
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=yes
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+--- 17536,17542 ----
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=no
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+***************
+*** 17551,17557 ****
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=yes
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+--- 17557,17563 ----
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=no
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+***************
+*** 17583,17589 ****
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    ;;
+  
+  newsos6)
+--- 17589,17595 ----
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    ;;
+  
+  newsos6)
+***************
+*** 17661,17667 ****
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+--- 17667,17673 ----
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+***************
+*** 17718,17724 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+--- 17724,17730 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+***************
+*** 19840,19846 ****
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=yes
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+--- 19846,19852 ----
+    version_type=linux
+    need_lib_prefix=no
+    need_version=no
+!   hardcode_into_libs=no
+    if test "$host_cpu" = ia64; then
+      # AIX 5 supports IA64
+      library_names_spec='${libname}${release}${shared_ext}$major ${libname}${release}${shared_ext}$versuffix $libname${shared_ext}'
+***************
+*** 20022,20037 ****
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=yes
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=yes
+      ;;
+    esac
+    ;;
+--- 20028,20043 ----
+      ;;
+    freebsd3.[01]* | freebsdelf3.[01]*)
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    freebsd3.[2-9]* | freebsdelf3.[2-9]* | \
+    freebsd4.[0-5] | freebsdelf4.[0-5] | freebsd4.1.1 | freebsdelf4.1.1)
+      shlibpath_overrides_runpath=no
+!     hardcode_into_libs=no
+      ;;
+    *) # from 4.6 on, and DragonFly
+      shlibpath_overrides_runpath=yes
+!     hardcode_into_libs=no
+      ;;
+    esac
+    ;;
+***************
+*** 20043,20049 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+--- 20049,20055 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    ;;
+  
+  hpux9* | hpux10* | hpux11*)
+***************
+*** 20055,20061 ****
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=yes
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 20061,20067 ----
+    case $host_cpu in
+    ia64*)
+      shrext_cmds='.so'
+!     hardcode_into_libs=no
+      dynamic_linker="$host_os dld.so"
+      shlibpath_var=LD_LIBRARY_PATH
+      shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 20070,20076 ****
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=yes
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+--- 20076,20082 ----
+      ;;
+     hppa*64*)
+       shrext_cmds='.sl'
+!      hardcode_into_libs=no
+       dynamic_linker="$host_os dld.sl"
+       shlibpath_var=LD_LIBRARY_PATH # How should we handle SHLIB_PATH
+       shlibpath_overrides_runpath=yes # Unless +noenvvar is specified.
+***************
+*** 20101,20107 ****
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=yes
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+--- 20107,20113 ----
+    dynamic_linker='Interix 3.x ld.so.1 (PE, like ELF)'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=no
+!   hardcode_into_libs=no
+    ;;
+  
+  irix5* | irix6* | nonstopux*)
+***************
+*** 20138,20144 ****
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=yes
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+--- 20144,20150 ----
+    shlibpath_overrides_runpath=no
+    sys_lib_search_path_spec="/usr/lib${libsuff} /lib${libsuff} /usr/local/lib${libsuff}"
+    sys_lib_dlsearch_path_spec="/usr/lib${libsuff} /lib${libsuff}"
+!   hardcode_into_libs=no
+    ;;
+  
+  # No shared lib support for Linux oldld, aout, or coff.
+***************
+*** 20159,20165 ****
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=yes
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+--- 20165,20171 ----
+    # This implies no fast_install, which is unacceptable.
+    # Some rework will be needed to allow for fast_install
+    # before this can be enabled.
+!   hardcode_into_libs=no
+  
+    # Append ld.so.conf contents to the search path
+    if test -f /etc/ld.so.conf; then
+***************
+*** 20191,20197 ****
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    ;;
+  
+  newsos6)
+--- 20197,20203 ----
+    fi
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    ;;
+  
+  newsos6)
+***************
+*** 20269,20275 ****
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=yes
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+--- 20275,20281 ----
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+    shlibpath_overrides_runpath=yes
+!   hardcode_into_libs=no
+    # ldd complains unless libraries are executable
+    postinstall_cmds='chmod +x $lib'
+    ;;
+***************
+*** 20326,20332 ****
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=yes
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+--- 20332,20338 ----
+    library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext} $libname${shared_ext}'
+    soname_spec='${libname}${release}${shared_ext}$major'
+    shlibpath_var=LD_LIBRARY_PATH
+!   hardcode_into_libs=no
+    if test "$with_gnu_ld" = yes; then
+      sys_lib_search_path_spec='/usr/local/lib /usr/gnu/lib /usr/ccs/lib /usr/lib /lib'
+      shlibpath_overrides_runpath=no
+***************
+*** 33185,33191 ****
+    fi
+  
+  
+-   ac_config_files="$ac_config_files csharpcomp.sh:../build-aux/csharpcomp.sh.in"
+  
+  
+  
+--- 33191,33196 ----
+***************
+*** 33821,33827 ****
+  
+  
+    # You need to invoke gt_JAVACOMP yourself, possibly with arguments.
+-   ac_config_files="$ac_config_files javacomp.sh:../build-aux/javacomp.sh.in"
+  
+  
+  
+--- 33826,33831 ----
+***************
+*** 37627,37670 ****
+  fi
+  
+  
+- subdirs="$subdirs libasprintf"
+  
+  
+- ac_config_files="$ac_config_files Makefile"
+  
+  
+- ac_config_files="$ac_config_files doc/Makefile"
+  
+  
+  ac_config_files="$ac_config_files intl/Makefile"
+  
+  
+- ac_config_files="$ac_config_files intl-java/Makefile"
+  
+  
+- ac_config_files="$ac_config_files intl-csharp/Makefile"
+  
+  
+- ac_config_files="$ac_config_files gnulib-lib/Makefile"
+  
+  
+- ac_config_files="$ac_config_files src/Makefile"
+  
+- ac_config_files="$ac_config_files src/gettext.sh"
+  
+  
+- ac_config_files="$ac_config_files po/Makefile.in"
+  
+  
+- ac_config_files="$ac_config_files man/Makefile"
+  
+- ac_config_files="$ac_config_files man/x-to-1"
+  
+  
+- ac_config_files="$ac_config_files m4/Makefile"
+  
+  
+- ac_config_files="$ac_config_files tests/Makefile"
+  
+  
+  cat >confcache <<\_ACEOF
+--- 37631,37661 ----
